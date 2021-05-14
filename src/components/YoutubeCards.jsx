@@ -1,35 +1,32 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Card, Button } from 'react-bootstrap';
 import SwiperCore, { Pagination } from 'swiper/core';
 
-import './YoutubeCards.sass';
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
+import "./YoutubeCards.sass";
+import VideoCard from './VideoCard';
+
 
 SwiperCore.use([Pagination]);
 
-const YoutubeCards = ({ videos }) => {
-  console.log(videos)
+const YoutubeCards = () => {
+  const videos = useSelector(state => state.youtubeReducer.items);
 
   return (
-    <>
-      <Swiper slidesPerView={4} spaceBetween={30} freeMode={true} >
-          {videos.map(videos => 
-          <Card  key={videos.id} style={{ width: '18rem' }}>
-            <SwiperSlide key={videos.id}>
-              <Card.Img variant="top" src={videos.snippet.thumbnails.medium.url} />
-              <Card.Body>
-                <Card.Title>{videos.snippet.title}</Card.Title>
-                <Card.Text>{videos.snippet.description}</Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </SwiperSlide>
-          </Card>)}
+    <div className='swiperWrapper'>
+      <Swiper 
+        slidesPerView={4}
+        spaceBetween={30}
+        freeMode={true} 
+        className='cardCarusel'>
+          {videos.map(info =>
+            <SwiperSlide key={info.id}>
+              <VideoCard info={info} />
+            </SwiperSlide>)}
       </Swiper>
-    </>
-
-      
+    </div>
   )
 }
 

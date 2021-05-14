@@ -1,4 +1,8 @@
-import { SET_IS_FETCHING, SET_RESULT } from '../constants';
+import { 
+  SET_IS_FETCHING,
+  SET_RESULT,
+  } 
+from '../constants';
 
 const initialState = {
   items: [],

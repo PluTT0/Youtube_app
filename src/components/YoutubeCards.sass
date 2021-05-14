@@ -1,40 +1,37 @@
-.swiper-wrapper
-  display: flex
-  flex-direction: row
-
-.card-text 
-  max-height: 200px
-  overflow: auto
-
-.card 
-  max-width: 500px
-
-.swiper-container 
-  width: 100%
+.root
+  position: relative
   height: 100%
 
+.swiperWrapper
+  margin: 60px    
 
-.swiper-slide 
-  text-align: center
-  font-size: 18px
-  background: #fff
 
+#flipButton
+  width: 100%
+  border-radius: 0
+  background: linear-gradient(0deg, rgb(144, 69, 69), rgb(255, 84, 84))
+
+#cardBody
+  border: 2px solid 
+  border-radius: 2px
+  padding: 0
 
 .swiper-pagination-bullet 
-  width: 20px
-  height: 20px
   text-align: center
-  line-height: 20px
-  font-size: 12px
-  color: #000
-  opacity: 1
-  background: rgba(0, 0, 0, 0.2)
+  border: 1px solid silver
+  border-radius: 100%
+  padding: 5px 10px
+  margin: 10px
+  cursor: pointer
+  display: flex
 
 
 .swiper-pagination-bullet-active 
   color: #fff
   background: #007aff
-
-.root
-  position: relative
-  height: 100%
+  border: 1px solid black
+  border-radius: 100%
+  font-weight: 700
+  padding: 5px 10px
+  margin: 0 10px
+  cursor: pointer
