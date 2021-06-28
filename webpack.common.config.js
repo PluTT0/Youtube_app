@@ -50,13 +50,6 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      '...',
-      new CssMinimizerPlugin(),
-    ],
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'My application',
