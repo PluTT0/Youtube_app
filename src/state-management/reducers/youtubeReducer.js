@@ -1,4 +1,5 @@
 import { 
+  SET_CURRENT_PAGE,
   SET_IS_FETCHING,
   SET_RESULT,
   } 
@@ -7,6 +8,7 @@ from '../constants';
 const initialState = {
   items: [],
   isFetching: true,
+  error: [],
 }
 
 const youtubeReducer = (state = initialState, action) => {
@@ -21,6 +23,12 @@ const youtubeReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: action.payload
+      }
+    case 'SET_ERROR':
+      return {
+        ...state,
+        isFatching: false,
+        error: action.payload
       }
     default:
       return state
