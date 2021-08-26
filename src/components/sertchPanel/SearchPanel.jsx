@@ -2,33 +2,32 @@ import React, { useEffect, useState }  from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Form, InputGroup, FormControl } from 'react-bootstrap';
 
-import { getYoutubeData } from '../state-management';
+import { getYoutubeData } from '../../state-management';
 import './SearchPanel.sass';
 
 
 const SearchPanel = () => {
-  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
+  const [sertchValue, setsertchValue] = useState('');
 
+  const dispatch = useDispatch();
   const onInputChange = (ev) => {
     setInputValue(ev.target.value);
-  } 
-
-  const onSubmit = (ev) => {
-    ev.preventDefault()
-    dispatch(getYoutubeData(inputValue));
-    
-    setInputValue('');
   }
 
   useEffect(() => {
-    dispatch(getYoutubeData(inputValue))
-    setInputValue('')
-  },[dispatch])
+    dispatch(getYoutubeData(sertchValue));
+  },[sertchValue])
+
+  const getVideo = (ev) => {
+    ev.preventDefault()
+    setsertchValue(inputValue);
+    setInputValue('');
+  }
 
   return (
     <> 
-      <Form onSubmit={onSubmit} className='serchWrapper'>
+      <Form onSubmit={getVideo} className='serchWrapper'>
         <InputGroup>  
           <FormControl 
             value={inputValue} 
@@ -39,7 +38,7 @@ const SearchPanel = () => {
             className='sertchInput'
             aria-describedby="basic-addon2" />
           <InputGroup.Append >
-            <Button onSubmit={onSubmit} type="submit" variant="outline-danger" className='serchButton'>Search</Button>
+            <Button onSubmit={getVideo} type="submit" variant="outline-danger" className='serchButton'>Search</Button>
           </InputGroup.Append>
         </InputGroup>
       </Form> 

@@ -1,7 +1,9 @@
 import { getYoutubeData } from './asyncAction/getData';
-import { setIsFetching } from './actionCreaters';
+import { setIsFetching, setError, setFetchResult } from './actionCreaters';
 
 export {
   getYoutubeData,
   setIsFetching,
+  setError,
+  setFetchResult
 }

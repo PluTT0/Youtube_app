@@ -1,5 +1,5 @@
-import { SET_RESULT, ACCESS_KEY, URL_SERCH } from '../../constants';
-import { setIsFetching } from '../actionCreaters';
+import { ACCESS_KEY, URL_SERCH } from '../../constants';
+import { setIsFetching, setFetchResult } from '../index';
 
 
 export const getYoutubeData = (inputValue) => {
@@ -8,14 +8,13 @@ export const getYoutubeData = (inputValue) => {
     fetch(URL_SERCH+inputValue)
       .then(res => res.json())
       .then(result => {
-        const serchResult = result.items;
-        const videoId = serchResult.map(videos => videos.id.videoId).join(',');
-        return fetch(`https://www.googleapis.com/youtube/v3/videos?key=${ACCESS_KEY}&id=${videoId}&part=snippet,statistics`)
+          const serchResult = result.items;
+          const videoId = serchResult.map(videos => videos.id.videoId).join(',');
+          console.log(result)
+          return fetch(`https://www.googleapis.com/youtube/v3/videos?key=${ACCESS_KEY}&id=${videoId}&part=snippet,statistics`)
       }).then(res => res.json())
-      .then(result => dispatch({
-        type: SET_RESULT,
-        payload: result
-      }))
+      .then(result => dispatch(
+        setFetchResult(result)
+      )).catch(err => console.log(err))
   }
 }
-

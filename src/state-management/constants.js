@@ -1,4 +1,4 @@
-const ACCESS_KEY = 'AIzaSyC7kIefeZtScz6x-oWZ4GMKXzlxRLqDMx8';
+const ACCESS_KEY = 'AIzaSyDrKC9KgTvfTM1DalnTzKy2ICQJ3HCMJw0';
 const maxResults = '15';
 const URL_SERCH = `https://www.googleapis.com/youtube/v3/search?key=${ACCESS_KEY}&type=video&part=snippet&maxResults=${maxResults}&q=`
 

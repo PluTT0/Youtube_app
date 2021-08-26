@@ -12,7 +12,7 @@ const BackCard = ({ info, handleClick }) => {
             {info.snippet.description}
           </span>
         </Card.Text>
-        <Button onClick={handleClick} id='flipButton' variant="secondary" size="lg" block>
+        <Button onClick={handleClick} id='flipButton_back' variant="secondary" size="lg" block>
           Back to info
         </Button>
       </Card.Body>

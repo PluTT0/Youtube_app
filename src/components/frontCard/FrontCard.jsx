@@ -25,7 +25,7 @@ const FrontCard = ({ info, handleClick}) => {
         </div>
         <Card.Body id='cardBody'>
           <Card.Text className="infoWrapper">
-            <span><GrChannel /> {info.snippet.channelTitle}</span>  
+            <span className='cardBodyTitle'><GrChannel /> {info.snippet.channelTitle}</span>  
             <span><BiLike /> {info.statistics.likeCount}</span>
             <span><BiDislike /> {info.statistics.dislikeCount}</span>
             <span><FaRegEye /> {info.statistics.viewCount} </span>
