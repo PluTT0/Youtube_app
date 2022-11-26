@@ -2,7 +2,9 @@ import {
   SET_CURRENT_PAGE,
   SET_IS_FETCHING,
   SET_RESULT,
+  SET_ERROR,
   } 
+  
 from '../constants';
 
 const initialState = {
@@ -24,7 +26,7 @@ const youtubeReducer = (state = initialState, action) => {
         ...state,
         isFetching: action.payload
       }
-    case 'SET_ERROR':
+    case SET_ERROR:
       return {
         ...state,
         isFatching: false,

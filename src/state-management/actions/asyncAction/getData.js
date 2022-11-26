@@ -1,20 +1,25 @@
-import { ACCESS_KEY, URL_SERCH } from '../../constants';
 import { setIsFetching, setFetchResult } from '../index';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
-export const getYoutubeData = (inputValue) => {
+console.log(process.env.ACCESS_KEY)
+
+const getYoutubeData = (inputValue) => {
   return (dispatch) => {
     dispatch(setIsFetching(true))
-    fetch(URL_SERCH+inputValue)
+    fetch(process.env.URL_SERCH+inputValue)
       .then(res => res.json())
       .then(result => {
           const serchResult = result.items;
           const videoId = serchResult.map(videos => videos.id.videoId).join(',');
           console.log(result)
-          return fetch(`https://www.googleapis.com/youtube/v3/videos?key=${ACCESS_KEY}&id=${videoId}&part=snippet,statistics`)
+          return fetch(`https://www.googleapis.com/youtube/v3/videos?key=${process.env.ACCESS_KEY}&id=${videoId}&part=snippet,statistics`)
       }).then(res => res.json())
       .then(result => dispatch(
         setFetchResult(result)
       )).catch(err => console.log(err))
   }
 }
+
+export default getYoutubeData;
