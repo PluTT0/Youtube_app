@@ -6,9 +6,9 @@ import SwiperCore, { Pagination } from 'swiper/core';
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
-import "./YoutubeCards.sass";
+import "./styles/YoutubeCards.sass";
 import VideoCard from './VideoCard';
-import Spinner from '../spinner/Spinner';
+import Spinner from './Spinner';
 
 SwiperCore.use([Pagination]);
 

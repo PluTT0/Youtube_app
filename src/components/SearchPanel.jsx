@@ -2,13 +2,13 @@ import React, { useEffect, useState }  from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Form, InputGroup, FormControl } from 'react-bootstrap';
 
-import { getYoutubeData } from '../../state-management';
-import './SearchPanel.sass';
+import { getYoutubeData } from '../state-management';
+import './styles/SearchPanel.sass';
 
 
 const SearchPanel = () => {
   const [inputValue, setInputValue] = useState('');
-  const [sertchValue, setsertchValue] = useState('');
+  const [sertchValue, setSertchValue] = useState('');
 
   const dispatch = useDispatch();
   const onInputChange = (ev) => {
@@ -17,11 +17,11 @@ const SearchPanel = () => {
 
   useEffect(() => {
     dispatch(getYoutubeData(sertchValue));
-  },[sertchValue])
+  },[sertchValue]);
 
   const getVideo = (ev) => {
     ev.preventDefault()
-    setsertchValue(inputValue);
+    setSertchValue(inputValue);
     setInputValue('');
   }
 

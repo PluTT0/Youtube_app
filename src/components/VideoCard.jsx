@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
-import FrontCard from '../frontCard/FrontCard'
-import BackCard from '../backCard/BackCard';
+import FrontCard from './FrontCard'
+import BackCard from './BackCard';
 
 
 const VideoCard = ({info}) => {

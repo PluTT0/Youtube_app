@@ -7,10 +7,10 @@ import { FaRegEye } from 'react-icons/fa';
 import { GrChannel } from 'react-icons/gr';
 import { BsCalendar } from 'react-icons/bs';
 
-import './FrontCard.sass';
+import './styles/FrontCard.sass';
 
 
-const FrontCard = ({ info, handleClick}) => {
+const FrontCard = ({ info, handleClick }) => {
   return (
     <div className='frontCardWrapper'>
         <div className="cardHeader">

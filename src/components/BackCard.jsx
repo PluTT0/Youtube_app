@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-import './BackCard.sass'
+import './styles/BackCard.sass'
 
 const BackCard = ({ info, handleClick }) => {
   return(
