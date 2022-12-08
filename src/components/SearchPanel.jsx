@@ -38,7 +38,7 @@ const SearchPanel = () => {
             className='sertchInput'
             aria-describedby="basic-addon2" />
           <InputGroup.Append >
-            <Button onSubmit={getVideo} type="submit" variant="outline-danger" className='serchButton'>Search</Button>
+            <Button type="submit" variant="outline-danger" className='serchButton'>Search</Button>
           </InputGroup.Append>
         </InputGroup>
       </Form> 

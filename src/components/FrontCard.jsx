@@ -27,7 +27,7 @@ const FrontCard = ({ info, handleClick }) => {
           <Card.Text className="infoWrapper">
             <span className='cardBodyTitle'><GrChannel /> {info.snippet.channelTitle}</span>  
             <span><BiLike /> {info.statistics.likeCount}</span>
-            <span><BiDislike /> {info.statistics.dislikeCount}</span>
+            {/* <span><BiDislike /> {info.statistics.dislikeCount}</span> */}
             <span><FaRegEye /> {info.statistics.viewCount} </span>
             <span><BsCalendar /> {info.snippet.publishedAt.substr(-20,10)} </span>
           </Card.Text>

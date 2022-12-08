@@ -1,0 +1,43 @@
+.appWrapper
+  background: linear-gradient(to left, rgb(17 0 0), rgb(30 3 3), rgb(56 29 29))
+  max-width: 100%
+  min-height: 100vh
+  //font-family: 'Montserrat', sans-serif
+  
+.swiper-pagination
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: row
+  margin-top: 20px
+  margin-bottom: 10px
+  &-bullet
+    display: none
+    align-items: center
+    justify-content: center
+    margin: 10px
+    padding: 10px
+    width: 20px
+    height: 20px
+    border-radius: 100%
+    text-align: center
+    line-height: 20px
+    font-size: 12px
+    color: #000
+    opacity: 1
+    background: rgb(56 29 29)
+    cursor: pointer
+    &-active
+      display: flex
+      color: #fff
+      background: rgba(255, 74, 74, 0.596)
+      border: 1px solid rgb(232, 229, 229)
+
+
+.swiper-pagination-bullet-active-next,
+.swiper-pagination-bullet-active-next-next,
+.swiper-pagination-bullet-active-prev,
+.swiper-pagination-bullet-active-prev-prev
+  display: flex
+  border: 1px solid #fff
+  background: rgb(232, 229, 229)

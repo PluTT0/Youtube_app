@@ -8,44 +8,42 @@ import "swiper/components/pagination/pagination.min.css";
 
 import "./styles/YoutubeCards.sass";
 import VideoCard from './VideoCard';
-import Spinner from './Spinner';
 
 SwiperCore.use([Pagination]);
 
+  
+const pagination = {
+  "clickable": true,
+  "rewind": true,
+  "dynamicBullets": true,
+  "hideOnClick": true,
+  "dynamicMainBullets": 1,
+  "renderBullet": function (index, className) {
+    return '<div class=\"' + className + '\">' + (index + 1) + '</div>';
+  }
+}
+
 const YoutubeCards = () => {
   const videos = useSelector(state => state.youtubeReducer.items);
-  const isFetching = useSelector(state => state.youtubeReducer.isFetching);
-
-  const pagination = {
-    "clickable": true,
-    "dynamicBullets": true,
-    "hideOnClick": true,
-    "dynamicMainBullets": 1,
-    "renderBullet": function (index, className) {
-      return '<div class=\"' + className + '\">' + (index + 1) + '</div>';
-    }
-  }
-
+  console.log(videos)
+  
   return (
-      isFetching === false
-      ?
-      <>
-        <div className='swiperWrapper'>
-          <Swiper
-            slidesPerView={4}
-            spaceBetween={30}
-            pagination={pagination}
-            freeMode={true} 
-            className='cardCarusel'>
-              {videos.map(info =>
-                <SwiperSlide key={info.id}>
-                  <VideoCard info={info} />
-                </SwiperSlide>)}
+    <>
+      <div className='swiperWrapper'>
+        <Swiper
+          rewind="true"
+          slidesPerView={4}
+          spaceBetween={30}
+          pagination={pagination}
+          freeMode={true}
+          className='cardCarusel'>
+            {videos.map(info =>
+              <SwiperSlide key={info.id}>
+                <VideoCard info={info} />
+              </SwiperSlide>)}
           </Swiper>
         </div>
-      </>
-      :
-      <Spinner />
+    </>
   )
 }
 

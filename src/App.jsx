@@ -1,30 +1,33 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import SearchPanel from './components/SearchPanel';
+import Spinner from './components/Spinner';
 import YoutubeCards from './components/YoutubeCards';
-import './index.scss'
-import { Spinner } from 'react-bootstrap';
+
+import './index.sass'
 
 
-function App()  {
-  const videos = useSelector(state => state.youtubeReducer.items);
+
+const style = {"textAlign": "center", "margin": "20px 0", "color": "#fff", "fontFamily": "Monserrat"}
+const App = () => {
+  const isFetching = useSelector(state => state.youtubeReducer.isFetching);
   const errorFetch = useSelector(state => state.youtubeReducer.error)
   console.log(errorFetch)
 
   return (
     <div className='appWrapper'>
       <SearchPanel />
+      <h1 className='title' style={style}>Most popular</h1>
       {
-        !videos.length
-        ?
-        <Spinner />
+        !isFetching
+         ?
+         <YoutubeCards />
         :
-        <YoutubeCards />
+        <Spinner/>
       }
-      
     </div>
   );
-}
+};
 
 
 export default App;
