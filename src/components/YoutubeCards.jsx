@@ -5,8 +5,8 @@ import SwiperCore, { Pagination } from 'swiper/core';
 
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-
 import "./styles/YoutubeCards.sass";
+
 import VideoCard from './VideoCard';
 
 SwiperCore.use([Pagination]);
