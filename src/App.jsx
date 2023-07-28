@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import SearchPanel from './components/sertchPanel/SearchPanel';
 import YoutubeCards from './components/youtubeCards/YoutubeCards';
-import './index.scss'
+import './index.sass'
 import { Spinner } from 'react-bootstrap';
 
 
